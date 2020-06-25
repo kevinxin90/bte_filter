@@ -48,7 +48,7 @@ def load_json(data_folder):
     for i,row in df.iterrows():
         doc = {'_id' : '-'.join([row[0], row[1]]),
               'MESH1' : row[0], 'MESH2' : row[1], 'UMLS1' : row[2], 'UMLS2' : row[3],
-              'combo' : ['-'.join([i,j]) for i in [row[0],row[2]] for j in [row[1],row[3]]],
+              'combo' : ['-'.join([i,j]) for i in [row[0],row[2]] for j in [row[1],row[3]]] + ['-'.join([i,j]) for i in [row[2],row[0]] for j in [row[3],row[1]]],
               'overall_freq' : {'total' : row[4], 'most_current_10' : row[6], 'most_current_5' : row[8]},
               'starred_freq' : {'total' : row[5], 'most_current_10' : row[7], 'most_current_5' : row[9]}}
         ngd = get_ngd(doc)
