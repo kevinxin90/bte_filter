@@ -1,0 +1,13 @@
+{
+    "version": "0.2",
+    "requires" : ["pandas", "numpy"],
+    "dumper" : {
+        "data_url" : ["https://ii.nlm.nih.gov/MRCOC/MH_freq_counts_2020.txt.gz",
+                      "https://ii.nlm.nih.gov/MRCOC/summary_CoOccurs_2020.txt.gz"],
+        "uncompress" : true
+    },
+    "uploader" : {
+        "parser" : "parser:load_annotations",
+        "on_duplicates" : "error"
+    }
+}
